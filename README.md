@@ -34,3 +34,29 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Environment Variables
+
+This project uses environment variables for runtime configuration. Create a `.env.local` file in the root directory:
+
+```bash
+cp .env.example .env.local
+```
+
+Edit `.env.local` to adjust values, for example:
+```
+NEXT_PUBLIC_API_BASE_URL=http://localhost:5000
+```
+
+## Docker
+
+To build and run the frontend in a Docker container:
+
+```bash
+docker build -t ccc-frontend .
+docker run -p 3000:3000 \
+  --env-file .env.local \
+  ccc-frontend
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the app.
